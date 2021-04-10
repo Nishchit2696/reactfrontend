@@ -1,0 +1,28 @@
+.Footerbg{
+    background-color: aqua;
+}
+.Login{
+    padding: center;
+    
+}
+.logo{
+    width: 50px;
+    height: 50px;
+}
+.img{
+    max-width: 100%;
+    width: 900px;
+    height: 900px;
+}
+.passimg{
+    padding: 5px;
+    height: 850px;
+    max-width: 100%;
+}
+.nav{
+    background-color:#2196f3;
+    font-family: Georgia;
+}
+.side{
+    padding-left: auto;
+}

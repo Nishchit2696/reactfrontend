@@ -1,0 +1,762 @@
+
+	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>  <html lang="en-us" class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html lang="en-us" class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html lang="en-us" class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html lang="en-us" class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html lang="en-us"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en-us">             <!--<![endif]-->
+
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Turnitin, LLC" />
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" />
+<title>Turnitin</title>
+
+<base href="http://api.turnitin.com">
+<style type="text/css">
+body	{
+	color: #333;
+	background: #C0C7CC;
+	padding: 0;
+	border: 0;
+	font: 13px Verdana, arial, sans-serif;
+	margin: 0;
+	}
+	
+form	{
+	padding: 0;
+	margin: 0;
+	}
+	
+body#display	{
+	}
+	
+body#bodysource	{
+	width: 520px;
+	background: #F0F4FA;
+	}
+	
+p	{
+	padding: 10px 18px;
+	margin: 0;
+	}
+	
+img	{
+	border: 0;
+	padding: 0;
+	}
+
+div	{
+	padding: 0;
+	border: 0;
+	}
+	
+iframe	{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	}
+	
+strong	{
+	font-weight: bold;
+	}
+	
+ul	{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 13px;
+	}
+	
+ul li	{
+	padding: 0;
+	margin: 0;
+	line-height: 16px;
+	}
+	
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: #D10A0A;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 20px;
+    }
+
+/*= GENERAL 
+=== === === === === === === === === === === === === === === === === === === === === === === === === === === === === === */	
+
+body  #top_bar {
+display: none !important;
+}
+
+body #index #exclude,
+#download_button,
+#print_button,
+#index .right {
+display: inline-block;
+}
+
+body #index {
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+background: #ececec url(new_dynamic/images/22bd7a01a025b8de122259e42762f0a7cb_ug_toolbar_bg.gif) repeat-x center left;
+}
+
+#toolbar_wrapper {
+padding-left:45px;
+}
+
+body #top {
+width: 85%;
+background-color: #FFF;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+border-bottom: none;
+height: 210px;
+}
+body #content {
+padding: 10px 60px;
+}
+body div#prefs {
+display: none;
+}
+
+body #top h2 {
+font-size: 20px;
+font-weight: normal;
+}
+
+body #top h2 strong {
+font-weight: normal;
+}
+body #top h2 em {
+font-style: normal;
+}
+
+
+body #top h3 {
+font-size: 16px;
+font-weight: normal;
+}
+
+body #top h3 strong {
+font-weight: normal;
+}
+body #top h3 em {
+font-style: normal;
+}
+
+        
+        body #top_body li	{/*Paper info li*/
+            padding:0;
+            margin: 0px 0px 2px 0px;
+            font-size: 10px;
+            }
+            
+            #top_body #print_wrapper {
+                float:left;
+                width: 50%;
+            }
+            
+            #top_body .similarity_print_wrapper {
+                width: 45%;
+                min-width: 283px;
+            }
+                
+            #top_body .similarity_box { /*Similiarity Box w/ Similarity by Source */
+                float: right;
+                border: solid 1px #666;
+                margin-top: 60px;
+                width: 350px;
+            }
+                #top_body .similarity_box .overall_similarity {
+                    float: left;
+                    border-right: solid 1px #666;
+                }
+                    #top_body .similarity_box .overall_similarity .color_box {
+                        font-size: 14px;
+                        width: 140px;
+                    }
+                        #top_body .color_box.green {
+                            background-color: green;
+                        }
+                        #top_body .color_box.blue {
+                            background-color: blue;
+                        }
+                        #top_body .color_box.yellow {
+                            background-color: yellow;
+                        }
+                        #top_body .color_box.orange {
+                            background-color: orange;
+                        }
+                        #top_body .color_box.red {
+                            background-color: red;
+                        }
+
+                    #top_body .similarity_box .overall_similarity .similarity_title {
+                        font-size: 13px;
+                        font-weight: normal;
+                        padding: 5px 0px 0px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity .similarity_percent {
+                        font-size: 25px;
+                        font-family: georgia, times, serif;
+                        padding: 5px 0px 15px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity a {
+                         display: none;
+                    }
+
+                #top_body .similarity_box .similarity_by_source {
+                     float: right;
+                     font-size: 10px;
+                }
+                    #top_body .similarity_box .similarity_by_source .similarity_title {
+                         padding: 6px 0px 0px 10px;
+                         font-weight: bold;
+                         text-align: left;
+                    }
+                    #top_body .similarity_box .similarity_by_source dl {
+                        padding-left: 10px;
+                        margin: 14px 7px 0px 0px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dt {
+                         float: left;
+                         width: 160px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dd {
+                        float: left;
+                        margin: 0px;
+                    }
+
+	
+		
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: #D10A0A;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+	float: right;
+	margin: 0;
+	padding: 0;
+	}
+	
+#small_matches_prefs {
+    display:none;
+}
+
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+.yui-button{display:-moz-inline-box;display:inline-block;vertical-align:text-bottom;}.yui-button .first-child{display:block;*display:inline-block;}.yui-button button,.yui-button a{display:block;*display:inline-block;border:none;margin:0;}.yui-button button{background-color:transparent;*overflow:visible;cursor:pointer;}.yui-button a{text-decoration:none;}.yui-skin-sam .yui-button{border-width:1px 0;border-style:solid;border-color:#808080;background:url(../images/yui270/build/assets/skins/sam/96b257a32a932f7739d7dab52b38ee8fcb_sprite.png) repeat-x 0 0;margin:auto .25em;}.yui-skin-sam .yui-button .first-child{border-width:0 1px;border-style:solid;border-color:#808080;margin:0 -1px;_margin:0;}.yui-skin-sam .yui-button button,.yui-skin-sam .yui-button a{padding:0 10px;font-size:93%;line-height:2;*line-height:1.7;min-height:2em;*min-height:auto;color:#000;}.yui-skin-sam .yui-button a{*line-height:1.875;*padding-bottom:1px;}.yui-skin-sam .yui-split-button button,.yui-skin-sam .yui-menu-button button{padding-right:20px;background-position:right center;background-repeat:no-repeat;}.yui-skin-sam .yui-menu-button button{background-image:url(yui270/build/button/assets/skins/sam/6305efb37fa05af65c79b58b9d4c1b03cb_menu-button-arrow.png);}.yui-skin-sam .yui-split-button button{background-image:url(yui270/build/button/assets/skins/sam/ced974d5c685e5dfa0a37b824a6b5d48cb_split-button-arrow.png);}.yui-skin-sam .yui-button-focus{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-focus .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-focus button,.yui-skin-sam .yui-button-focus a{color:#000;}.yui-skin-sam .yui-split-button-focus button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-focus.png);}.yui-skin-sam .yui-button-hover{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-hover .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-hover button,.yui-skin-sam .yui-button-hover a{color:#000;}.yui-skin-sam .yui-split-button-hover button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-hover.png);}.yui-skin-sam .yui-button-active{border-color:#7D98B8;background-position:0 -1700px;}.yui-skin-sam .yui-button-active .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-active button,.yui-skin-sam .yui-button-active a{color:#000;}.yui-skin-sam .yui-split-button-activeoption{border-color:#808080;background-position:0 0;}.yui-skin-sam .yui-split-button-activeoption .first-child{border-color:#808080;}.yui-skin-sam .yui-split-button-activeoption button{background-image:url(yui270/build/button/assets/skins/sam/890272b241c1d8a0db3ce5680b71fab0cb_split-button-arrow-active.png);}.yui-skin-sam .yui-radio-button-checked,.yui-skin-sam .yui-checkbox-button-checked{border-color:#304369;background-position:0 -1400px;}.yui-skin-sam .yui-radio-button-checked .first-child,.yui-skin-sam .yui-checkbox-button-checked .first-child{border-color:#304369;}.yui-skin-sam .yui-radio-button-checked button,.yui-skin-sam .yui-checkbox-button-checked button{color:#fff;}.yui-skin-sam .yui-button-disabled{border-color:#ccc;background-position:0 -1500px;}.yui-skin-sam .yui-button-disabled .first-child{border-color:#ccc;}.yui-skin-sam .yui-button-disabled button,.yui-skin-sam .yui-button-disabled a{color:#A6A6A6;cursor:default;}.yui-skin-sam .yui-menu-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/4df7235ca027f2546b2a216e59f81fb0cb_menu-button-arrow-disabled.png);}.yui-skin-sam .yui-split-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/db73dce6da2f5c5f02399c93488ce69ecb_split-button-arrow-disabled.png);}
+
+</style>
+
+</head>
+
+<body onload="">
+
+
+
+<link rel="stylesheet" type="text/css" href="/r/build/css/tii/88ee4ccd3555f2b759921fb5d58d83e5cb_container.css" media="all" />
+
+
+
+
+<script type="text/javascript" src="/r/build/js/tii/8b608684a5f4aec1b540987c93498c01cb_tii_anonymous_marking.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+function initAnonymousMarking () {
+    // initialize panel.  
+    var config = {
+            zindex: 4,
+            underlay: 'none',
+            modal: true,
+            visible: false,
+            draggable: false,
+            close: false,
+            fixedcenter: true
+    };
+    if ($('disable_anonymous_marking')) {
+        disableAnonymousMarkingPanel = new IP.widget.Panel($('disable_anonymous_marking'), config);
+        if($D.hasClass('disable_anonymous_marking', 'app')) {
+            disableAnonymousMarkingPanel.center = function () {
+                var nViewportOffset = 20,
+                    elementWidth = this.element.offsetWidth,
+                    elementHeight = this.element.offsetHeight,
+                    viewPortWidth = $D.getViewportWidth(),
+                    viewPortHeight = $D.getViewportHeight(),
+                    x,
+                    y;
+
+                if (elementWidth < viewPortWidth) {
+                    x = (viewPortWidth / 2) - (elementWidth / 2) + $D.getDocumentScrollLeft();
+                } else {
+                    x = nViewportOffset + $D.getDocumentScrollLeft();
+                }
+
+				if (browser == 'Internet Explorer') {
+					x = 0;
+				}
+                y = 2 + $D.getDocumentScrollTop();
+
+                this.cfg.setProperty("xy", [parseInt(x, 10), parseInt(y, 10)]);
+                this.cfg.refireEvent("iframe");
+            };
+        }
+        disableAnonymousMarkingPanel.render(document.body);
+        disableAnonymousMarkingPanel.hideEvent.subscribe(function () { $('anonymous_error').innerHTML = ''; }, false);
+        disableAnonymousMarkingPanel.hide();
+        Element.show($('disable_anonymous_marking'));
+    }
+}
+
+function disableAM (data) {
+    $('anonymous_title').innerHTML = data.title;
+    document.disable_anonymous_marking_form.objectid.value = data.oid;
+    disableAnonymousMarkingPanel.show();
+}
+
+function checkDisableAM () {
+    var form = document.disable_anonymous_marking_form;
+    if (form.reason.value.length <= 5) {
+        $('anonymous_error').innerHTML = "Please provide a reason for turning anonymous marking off.";
+    }
+    else {
+        form.submit();
+    }
+    return;
+}
+
+YAHOO.util.Event.onDOMReady(initAnonymousMarking);
+
+</script>
+
+<div id="disable_anonymous_marking" class="app" style="display: none;">
+<div class="anonymous_frames">
+<form method="post" name="disable_anonymous_marking_form">
+    <input type="hidden" name="objectid" value=""/>
+    <input type="hidden" name="disable_anonymous_marking" value="1"/> 
+    <div class="anonymous_header">
+    	<h1>turn off anonymous marking</h1>
+		<p>Please state reason for turning off Anonymous Marking for: <span id="anonymous_title"></span><br />
+			<strong>Warning: Administrator has access to this information. This setting is permanent.</strong>
+        
+            </p>
+        
+    </div>
+    <div class="anonymous_body">
+        <textarea name="reason" cols="30" rows="3"></textarea>
+        <p id="anonymous_error"></p>
+    </div>
+    <div class="anonymous_footer">
+		<div class="anonymous_footer_buttons">
+    		<span class="submit_form_button"><input type="button" onClick="checkDisableAM();" value="submit"></span><br>
+        	<span class="submit_form_button"><input type="button" value="Cancel" onClick="disableAnonymousMarkingPanel.hide();"></span>
+		</div>
+    </div>
+</form>
+</div>
+</div>
+<div id="actions">
+<p>This is a preview of the print version of your report. Please click "print" to continue or "done" to close this window.</p>
+<script type="text/javascript" language="javascript">
+	var browserName=navigator.appName;
+	var browserVer=parseInt(navigator.appVersion);
+	if ((navigator.appVersion.indexOf("Mac")!=-1) && (browserName == "Microsoft Internet Explorer")) {
+		document.write('<span class="AR10">Type COMMAND-P to print.</span><br><br>');
+	} else {
+		document.write('<a href="javascript:window.print();">print</a>&nbsp;&nbsp;');
+	}
+</script>
+<a href="javascript:window.close();">done</a>
+</div>
+
+
+<!-- ########################### Preferences pop-up ##########################--> 
+<div id="prefs" style="visibility:hidden">
+<div class="padding">
+<form name="prefs_form" method="post" accept-charset="utf-8">
+<script type="text/javascript" language="javascript">
+function savePrefs(){
+	if (document.prefs_form.changed.value == 1){
+		document.prefs_form.submit();
+	}else{
+        hidePrefsPane();
+	}
+}
+
+function showPrefsPane(){
+    document.getElementById('prefs').style.visibility='visible';
+    document.getElementById('use_colors').focus();
+}
+
+function hidePrefsPane(){
+    document.getElementById('prefs').style.visibility='hidden';
+    document.getElementById('prefs_link').focus();
+}
+
+
+var overlay;
+function showSmallMatchExclusions() {
+    var linkRegion = $D.getRegion('exclude_small_matches_link');
+    var panelRegion = $D.getRegion('small_matches_prefs');
+    var indexRegion = $D.getRegion('index');
+    
+    var topLocation = indexRegion.bottom;
+    $D.setStyle('small_matches_prefs', 'top', topLocation + 'px');
+    $D.setStyle('small_matches_prefs', 'left', linkRegion.left + 'px');
+    
+    $D.setStyle('small_matches_prefs', 'visibility', 'visible');
+
+    // focus the field
+    $D.hasClass('exclude_by_percent_row', 'selected') ? $('exclude_by_percent_value').focus() : $('exclude_by_words_value').focus();
+}
+
+function hideSmallMatchExclusions() {
+    $D.setStyle('small_matches_prefs', 'visibility', 'hidden');
+}
+
+function selectSmallExclusionMethod(enableType) {
+    if(enableType == 'words') {
+        $('exclude_by_words_value').focus();
+        
+        $D.addClass('exclude_by_words_row', 'selected');
+        $D.removeClass('exclude_by_percent_row', 'selected');
+        $D.removeClass('exclude_by_words_row', 'disabled');
+        $D.addClass('exclude_by_percent_row', 'disabled');
+    }
+    else {
+        $('exclude_by_percent_value').focus();
+        
+        $D.removeClass('exclude_by_words_row', 'selected');
+        $D.addClass('exclude_by_percent_row', 'selected');
+        $D.addClass('exclude_by_words_row', 'disabled');
+        $D.removeClass('exclude_by_percent_row', 'disabled');
+    }
+}
+
+function updateExcludePercentage(wordCount) {
+    var percent = Math.floor(wordCount / 2780 * 100);
+    
+    $('exclude_by_percent_value').value = percent;
+}
+
+function updateExcludeWordCount(percent) {
+    var wordCount = Math.floor((percent/100) * 2780);
+    
+    $('exclude_by_words_value').value = wordCount;
+}
+
+function submitSmallMatchesChange() {
+    var excludeBy = $D.hasClass('exclude_by_percent_row', 'selected') ? 'percent' : 'words';
+    var excludeValue = excludeBy == 'percent' ? $('exclude_by_percent_value').value : $('exclude_by_words_value').value;
+    
+    changeSmallMatchExclusion(excludeBy, parseInt(excludeValue), 2780);
+}
+
+</script>
+</script>
+<input type="hidden" name="changed" value="0">
+        <div class="pref_rows">
+                <label for="use_colors">color-code matches:</label>
+                <select id="use_colors" name="use_colors" onchange="document.prefs_form.changed.value=1">
+                    <option value="1">yes
+                    <option value="0" selected>no
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="def_report_mode">default mode:</label>
+                <select id="def_report_mode" name="def_report_mode" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">show highest matches together
+                    <option value="1">show matches one at a time
+                    <option value="2">quickview (classic) report
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="report_scrolling">auto-navigation:</label>
+                <select id="report_scrolling" name="report_scrolling" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">jump to next match
+                    <option value="1">scroll to next match
+                </select>
+                <div class="clear"></div>
+        </div>
+        
+        <div id="prefs_confirm">
+            <button onClick="savePrefs()" >Save</button>  
+         <a href="javascript:void(0);" onClick="hidePrefsPane();">Cancel</a>
+        </div>
+</form>
+</div>
+</div>
+<!-- ########################### END Preferences pop-up  ##########################--> 
+
+<!-- ########################### BEGIN small matches pop-up  ##########################--> 
+<div id="small_matches_prefs">
+    <form onsubmit="submitSmallMatchesChange(); return false;">
+        <ul>
+            <li id="exclude_by_words_row" class="selected">
+                <label for="exclude_by_words_value">Word Count: </label>
+                <input type="text" id="exclude_by_words_value" size="3" value="" onkeyup="updateExcludePercentage(this.value)" onfocus="selectSmallExclusionMethod('words')"> words
+            </li>
+            <li id="exclude_by_percent_row" class="disabled">
+                <label for="exclude_by_percent_value">Percentage: </label>
+                <input type="text" id="exclude_by_percent_value" size="3" value="" max-length="3" onkeyup="updateExcludeWordCount(this.value)" onfocus="selectSmallExclusionMethod('percent')"> %
+            </li>
+        </ul>
+        <p><input type='submit' value="submit"> or <a href="javascript:hideSmallMatchExclusions()">Cancel</a></p>
+    </form>
+</div>
+
+<!-- ########################### END small matches pop-up  ##########################-->
+
+<!-- ########################### Top of Report  ##########################--> 
+<div id="top">
+    <div id="content">
+    
+        <!-- ######### Top Bar  ##########################--> 
+        <div id="top_bar">
+                <ul id="top_bar_list1">
+                      <!-- Preferences --><li><a id="prefs_link" href="javascript:showPrefsPane();">preferences</a></li> 
+                </ul>
+                <ul id="top_bar_list2">
+                      
+                </ul>
+                <div class="clear"></div>
+        </div>   
+        <!-- ######### END Top Bar  ##########################--> 
+        
+        
+        <!-- ######### Top Body  ##########################--> 
+        <div id="top_body">
+        
+            <div id="print_wrapper">
+                <div class="general_info">
+                    <!-- Logo --> 
+                    <h2>
+                        <span class=""></span>
+                        <strong>Turnitin</strong>
+                        <em>Originality Report</em>
+                     </h2>
+                 
+                     <!-- Paper Info -->               
+                     <ul>
+                         <li>Processed on: 06-Apr-2021 20:46 IST</li>
+                         <li>ID: 1551093039 </li>
+                         <li>Word Count: 2780</li>
+                         <li>Submitted: 2</li>
+                     </ul>
+                </div>
+
+                 <!-- Paper Title --> 
+                <h3>
+                    <strong>10261446_170321_Nishchit_Shah_Inventroy_Tracibility_warehouse</strong> 
+                    
+                    <em>By Student User</em>
+                    
+                </h3>
+            </div>
+            
+            <div id="similarity_print_wrapper">
+                <div class="similarity_box">
+                    <div class="overall_similarity">
+                        <div class="color_box green">&nbsp;</div>
+                        <div class="similarity_title">Similarity Index</div>
+                        <div class="similarity_percent">10%</div>
+                    </div>
+                    <div class="similarity_by_source">
+                        <div class="similarity_title">Similarity by Source</div>
+                        <dl>
+                            <dt>Internet&nbsp;Sources:</dt>
+                            <dd>10%</dd>
+                            <div class="clear"></div>
+                            <dt>Publications:</dt>
+                            <dd>0%</dd>
+                            <div class="clear"></div>
+                            <dt>Student&nbsp;Papers:</dt>
+                            <dd>1%</dd>
+                            <div class="clear"></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                                 
+        </div>
+        <!-- ######### END Top Body  ##########################--> 
+        
+        
+    </div>
+</div>
+<!-- ########################### END Top of Report  ##########################--> 
+
+
+
+<!-- ########################### TOOLBAR  ##########################--> 
+<div id="index">
+	<div id="toolbar_wrapper">
+        
+	</div>
+</div>
+<!-- ########################### END TOOLBAR  ##########################--> 
+
+
+<div class="links">
+	<div>
+	<p>10% match (Internet from 26-Nov-2020)</p>
+
+	<p><a href="https://www.mdpi.com/1424-8220/19/10/2394/htm" target="_blank" style="color:#D10A0A">https://www.mdpi.com/1424-8220/19/10/2394/htm</a></p>
+
+
+	</div>
+</div>
+<div id="body" tabIndex="0">
+<p>IOT INDIVIDUAL PROJECT UAV AND BLOCKCHAIN-BASED SYSTEM RESEARCH Submitted by : Nishchit Shah Coventry ID: 10261446 Modul Leader: Hikmat Saud Table of Contents A Inventory and Traceability: UAV and Blockchain-Based System ......................................................................................... 3 Abstract ................................................................................................................................................................................... 3 Introduction ............................................................................................................................................................................ 3 Aims......................................................................................................................................................................................... 3 Objective ................................................................................................................................................................................. 3 Problem Statement ................................................................................................................................................................. 4 Related work: .......................................................................................................................................................................... 4 Labeling and Identification Technology: ............................................................................................................................. 4 UAVs Application................................................................................................................................................................. 5 Blockchain and Supply Chain Management........................................................................................................................ 5 Conceptual Framework ........................................................................................................................................................... 6 Implementation ...................................................................................................................................................................... 7 UAV implementation .......................................................................................................................................................... 7 Research Finding ..................................................................................................................................................................... 8 Inventory Time Testing ...................................................................................................................................................... 10 Conclusion ............................................................................................................................................................................. 11 Reference .............................................................................................................................................................................. 11 A Inventory and Traceability: <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">UAV and Blockchain-Based System</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Abstract <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">Industry 4.0</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> has provided new reference for making industry and warehouse autonomous and upgrade through the use of new technology. One of the new technologies is UAV (Unmanned Aerial Vehicles) which is evolved rapidly throughout the last years. And they have significantly reduce their cost which will helpful for the industry and warehouse for implementation and reduce their extremal expenses. As warehouse have to store many inventory which means they have to hire third person for traceability of inventory. As human have chance to make mistake errors and misplace the inventory. So it will be acceptable to improve and implement sensors and technology to collect valid information. Thus, this research paper will <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">present the design of a UAV-based system aimed</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> to autonomous <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">inventory</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> task. UAV used RFID (Radio-Frequency Identification) to track the inventory and Blockchain-based system channel the valid information of the inventory for more traceability. Which will reduce the cost and external expanses of the warehouse or industry. Introduction Industry 4.0 concept evolution of traditional industry into smart industry use the modern technology. As smart industry consist bigdata, augmented reality, and robotics. With the help of this technology we can improve the supply chain. It will prove the handling in inventory task to organization and predict inventory need, customer demand response, reduce inventory cost and optimize the storage and flow of inventory. Hence, it will prove the system and create an autonomous chain of system for the warehouse. UAVs will use in <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">industry 4.0 to collect as much data from multiple</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> location. It is <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">able to store, process and exchange information with</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> device in factories. As drone can be used for sibilance. It will used 3d Light Detection for the self-position and mapping technique to detect the inventory and RFID card of inventory to scan by the scanner installed in the UAVs. Blockchain can improve the speed of industry. It will collect all the data from the UAVs and such other device and manage all the information of inventory. It can establish the chain communication between sensor and database to maintain the entries and stocks. It can track all the records, duplicate and distribute across the office computer and can be used in as a proof. It can provide the security to the warehouse and protect its data from hackers. Aims ? Reducing Time and cost for the identification of the inventory and tractability. ? To improve security proper records of all the data. Objective ? Use the RFID card to track all the inventory. ? Using the 3D light detection and RFID reader in UAVs for inventory task. ? Use blockchain it will carry all the information scan by drone FRID scanner and regulate all the information to the database and main all the records. ? We update the performance and implemented smart contracts in diverse scenarios. Problem Statement Every company operate their own warehouse to fulfill the quickly order and to store their raw material. As many warehouse used old management system for the operation which have many loop holes that can increase the cost of the company. They have old record keeping for their inventory and they operate manually which have a high chance of risk for the company. And it will be hard to keep track and keep records and to manage the man power. As warehouse is established in a large area which means they need a large number of manpower to operate smoothly and large manpower mean a high chance of mistake or errors. In many case worker forget the old raw material that should be used before expire date have been forgotten due to lack of communication and records miss match. This might cost more to the company and need for money to operate a large manpower. As this system work manual which cost time to finish a task and every company try to save their cost and time. Related work: This concept required 4 element to keep the track of the inventory of a warehouse: ? Labeling: In every item should install a tag or labels that has a unique identifier and with additional information. ? ? ? Identification Technology: To identify the inventory tag remotely for the process. A UAV: To attach all the identification technology <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to accelerate data gathering.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Blockchain <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">management techniques:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Process, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">gathering and</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> storage all the data for more effective work. Labeling and Identification Technology: There are many Identification code or tag that can be used to identify the object. Most popular code is bar-code which maximum used throughout the world for the identification of serial number for the object. For scanning the bar-code need line-of-sign (LoS) which have relatively short distance. Manufacture cost relatively less to the company, since it only required special software to print the bar-code. But bar-code has limitation of storing data. Despite limitation, it improve the speed of tracking inventory then old traditional identification procedure. As time pass bar-code evolved towards Quick Response (QR) or BiDimensional (BiDi) code. It can store more than 1800 characters data of the inventory which can be read by the smart phone <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">camera, thus,</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> reduce <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the overall cost of the inventory</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> tracking <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">system. QR</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> code <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">can be read up to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> the <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">distance depends on the size of the QR</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">code</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> size. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">Since both</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> bar-code <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">and QR</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> code has a <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">limited reading distance and need LoS between</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> scanner and <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the code.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> As labels are evolved to the sophisticated labels. The next step <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of inventory</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> tractability <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">system</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> is <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">based on RFID.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> As such kind of label has a distance of several centimeter to several tons of meter. In additional, RFID can store certain data of the inventory. And some modern RFID is capable of sensing the temperature, acceleration of light. The next evolution of the tag is called smart tag which is more complex then RFID tag. Smart tag is more complex that can be storing functionality like event detection, embed IOT sensor that can collect the data from the surrounding that is relevant for the inventory. As tags are getting smarter which make identification tractability system autonomous and effective for the ware house, that can protect the inventory and can communicate with multiple device for more accurate record keeping. Figure 1: Identification technology evolution UAVs Application As UAVs is provide services to many industry for different purpose as a requirement. As many company used for the obstacle collision avoidance, cargo transport, surveillance and such activities. As UAVs can be used for inventory tractability management system like a QR code based UAV to detect inventory which have precision of 98%, with the detaching the LoS with QR code scanner. Additionally RFID identification technology embedded in a UAV which can perform a task autonomously in a warehouse. This can help to identify the inventory and pickup and drop without any damage to the inventory. Blockchain and Supply Chain Management As many task has done by smart devices and machine that makes a risk of hacking and data missing between devices. Blockchain collect all the data from devices, records the information in the encrypted that makes difficult to hack, change and cheat the system. It will duplicate and distribute the records in an essentially a digital ledger of transaction throughout the network devices. Each blockchain carry every new transaction is added to a particular ledger. With the deployment of the blockchain framework that collect data from the identification technology. An inventory <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">management level, different Key Performance Indicators (KPIs) in order to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> evaluation and decision making. Conceptual Framework Given figure shows the purposed architecture for the warehouse. First of all, UVA carries the signal board computer and identification technology. The identification technology collect the data of the inventory, which process the data and send them through the help of signal board, communicate wirelessly to the ground station. Ground station send that data for processing with the help of blockchain modules and Decentralized storage module for enhance cybersecurity. Figure 2: Bockchain and communication architecture Ground station use software modules as a Blockchain client. Therefore, Signal Board computer collect the data and store them in a secure way, into the Blockchain modules, which allow the system to participate of logistic, manufacture supplies and retailers. It will collect all the data to the cloud based services, but blockchain includes the feature that can help third parties to carryout audits or financial evaluation, that will verified fulfilled the law like: ? Blockchain create a transparency of inventory data for third parties. ? It will authenticate all the data and stored in a particular ledger. ? It will collect all the data of supplies, manufacture and inventory to verification for authenticity. ? It will verified all the attributes automatically to reduce the cost. Decentralization storage has three main advantage that enhance the inventory and traceability data they are: ? To create copies in a multiple nodes automatically. ? To protect from the cyber-attacks hence it will duplicate all the data and store in node. ? Besides providing cyber security, it will develop decentralized application (dApp) which will co-operate with a blockchain. Both the framework basically deal with a similar information types as in other conventional stock arrangements: with unique alphanumeric identifier (UIDs). UID performed by the additional layer software that will provide security by cyber-physical system (CPS). Implementation UAV implementation UAV will be a perfect equipment for the inventory tractability for the ware houses. Ware house cover a large area of storage facilities the inventory, hence UVA has stable trajectory and compact body that will carry all the sensor and technology for the inventory identification. UVA main objective is for reducing cost and it is simple modular that can adopt all the sensor and identification technology. In particular, the UAV is a hexacopter edge <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of 550 mm of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> breadth generally <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">made of carbon fiber</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> with <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> exception of the arms. The flight regulator <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">is a PixHawk 2.4.8 that has been</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> streaked <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">with the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> notable <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">open- source firmware</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Autopilot. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">The</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> push <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to move the UAV is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> created <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">by six 920 Kv brushless</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> engines <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">controlled by six 30</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> An <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">Electronic Speed Control (ESCs), which are</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> fueled <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">by a four-cell 5 Ah Li-Po battery that</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> additionally gives capacity <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to all the on-board</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> hardware <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">through a voltage</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> change <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">module.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Other than <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> implicit <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">sensors of the flight</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> regulator load up, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">a UBLOX M8N GPS module was</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> incorporated <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> empower outside self-ruling trips since in this mechanical use case. It will carry all the additional sensor like RFID reader and Single Board controller to track the inventory. Figure 3: UAV and identification technology Research Finding Warehouse contain a numbers of inventory package in a wooden, plastic and cardboard boxes. As all the inventory is labelled with RFID tags. In order to test the system, some boxes are labelled with special FRID tag and system have to find that special FRID tag in given time as shown in figure. Figure 4: RFID tags Special 13 different tag are attached and scattered all over the warehouse area. Hence, UAV scan all over the warehouse with the help of GPS and ground station. The utilization of various <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">on-board sensors and the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> position <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> various picture <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">based or RFID markers in the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> warehouse as shown <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">in</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> figure below. Figure 5Ground Station. Figure 6 Testing Inventory Time Testing The first test was done to test the time taken to identification <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">data could be collected. The</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> level <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of read</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> labels <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">through</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> an ideal opportunity for four unique tests. During such tests the labels stayed at a similar area and were joined to similar things. Thinking about the idea of the proposed tests and the RFID scanner understanding reach, the pilot insight and abilities can be thought of immaterial in the outcomes got. Figure 7Inventory Identification testing During test 1 and test 2, UVA have a same time of pattern of identifying special tags as shown in the graph curve. But the UVA improve over the time because of the data that collect its surrounding during first flight. As test being UAV smart sensor start improving its performance and increase in time and stable flight for perfectly align the scanner to scan faster. During test 3 and test 4, On account <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of Test 3 the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> withdrawing marks <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">was</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> situated <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">in the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> contrary <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">side of the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> start <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> observed surrounding, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">where</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> a few <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">tags were</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> put. <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">This</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> determined <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">into requiring a</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> sum <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of 229 s to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> gather <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">all the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> RFID tags inventory. Notwithstanding, in Test 4 the robot was generally in the center of the checked territory, it just <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">took 26 s to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> finish <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the inventory.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> In different cases, primarily due to the frequency range, during the initial 11 s, it was feasible to peruse generally 30% of the labels. In addition, on the whole tests, half of the things where stocked in under a moment and every one <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of them in</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> under <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">four minutes. These</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> outcomes <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">are</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> truly encouraging, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">since the time</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> needed <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">by a human</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> administrator <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> gather a similar data is far more noteworthy <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">than when</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> utilizing <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the proposed UAV-based</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> framework. Conclusion This research present the system implementation and the test shows the UVA identification system efficiency for the warehouse. After review of the test and the creation connection of the warehouse UVA system and identification technology. The sensor that are Install in UVA a RFID based system to scan the RFID tag to collect data. This system are really effective for collecting and processing data. And block chain provide enhance cyber security. The framework had the option to utilize smart connection to autonomous certain cycles without human intercession. The proposed framework was test shows a genuine distribution center and the got results show that it can gather information surprisingly quicker <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">than a human</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> administrator <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">and that it is</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> feasible <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">to</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> find things <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">in the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> distribution center <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">by</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> utilizing <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">their SSI.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Besides, <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">the</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> exhibition <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">of the proposed blockchain-based</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> design <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">was</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> assessed <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: https://www.mdpi.com/1424-8220/19/10/2394/htm"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=8.69740259717027&svr=55&session-id=6b03537284b5481792ac1ebe7ba30f29&lang=en_us&sid=75376179&n=3793&svr=31&session-id=6b03537284b5481792ac1ebe7ba30f29', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:#D10A0A" class="#D10A0A">in</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> assorted situations. In the context of Nepal, this framework will be more effective and cost saving. As Nepal warehouse might not have a big area to cover but this frame work can be use in a mid- range warehouse. Where it will provide all the cyber-security and will maintain all the records. This system help to keep tracking in the inventory that might be done more flawless and ware house will be run autonomous. It will track all the demands, raw materials and security to the inventory which will be flawless for the warehouse to reduce their daily expanse and limited manpower can be used in different work that will improve warehouse eco-system. And people can get the fresh and good maintain inventory because of a good warehouse system. The implementation of the UVA identification technology is more affordable for the Nepalese warehouse and Blockchain will maintain all inventory data that has been collected by the UVA technology. This will create an eco-system of the autonomous system that will reduce all the errors that effect warehouse and skilled manpower will get the works that will reduce the main problem of our country, which is brain drain. And collected data from warehouse will be use to analysis that can be used for the better future for the country and the warehouses of the Nepal. Reference Digital Twin and Big Data Towards Smart Manufacturing and Industry 4.0: 360 Degree Comparison https://ieeexplore.ieee.org/document/8258937 Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for. https://www.google.mu Eyesee - une solution d'inventaire par drone en entrepôts https://eyesee-drone.com/ DroneScan https://www.dronescan.co/ RFID in Manufacturing Webinar - Omni-ID https://omni-id.com/rfid-in-manufacturing-webinar/ Blockchain Explained https://www.investopedia.com/terms/b/blockchain.asp What Is Blockchain Technology? How Does It Work? | Built In https://builtin.com/blockchain Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah Interactive Pervasive Computing 10261446 170321 Nishchit Shah </p>
+</div>
+</body>
+</html>
