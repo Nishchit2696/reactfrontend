@@ -35,7 +35,7 @@ class Passport extends Component{
       window.location.href="/Passportshow"
      
     })
-    .catch(err =>{
+    .catch(err => {
       console.log(err);
     })
   }
@@ -46,7 +46,7 @@ class Passport extends Component{
           <MDBContainer fluid className="text-center text-md-left">
 <MDBRow>
   <MDBCol md="6">
-   <img src="../Image/Passport.jpg" md="6" className="passimg"/>
+   <img src="../Image/license.jpg" md="6" className="passimg"/>
   </MDBCol>
   <MDBCol md="6">
   <div className="card col-12 col-lg-10 login-card mt-5 hv-right" >
@@ -68,13 +68,7 @@ class Passport extends Component{
         <input type="text" value={this.state.Fathername} onChange={(event)=>{this.setState({Fathername: event.target.value})}} id="defaultFormRegisterConfirmEx" className="form-control" />
         <br />
          <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
-         Citizenship No.
-        </label>
-        <br />
-        <input type="text" value={this.state.CitizenshipNo} onChange={(event)=>{this.setState({CitizenshipNo: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
-        <br />
-         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
-         Occupation
+          Occupation
         </label>
         <br />
         <input type="text" value={this.state.Ocupation} onChange={(event)=>{this.setState({Ocupation: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
@@ -84,6 +78,12 @@ class Passport extends Component{
         </label>
         <br />
         <input type="text" value={this.state.Education} onChange={(event)=>{this.setState({Education: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
+        <br />
+         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
+         Citizenship No.
+        </label>
+        <br />
+        <input type="text" value={this.state.CitizenshipNo} onChange={(event)=>{this.setState({CitizenshipNo: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
         <br />
         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
          Phone Number
