@@ -34,7 +34,7 @@ class Licence extends Component{
     axios.post("http://localhost:90/license_insert", data, this.state.config)
     .then((response)=>{
       window.alert("Licence successful Inserted")
-      window.location.href="/"
+      window.location.href="/Licenceshow"
      
     })
     .catch(err => {

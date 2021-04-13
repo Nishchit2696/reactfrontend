@@ -23,7 +23,7 @@ render() {
         <Nav.Link href="/voting">Voting</Nav.Link>
         <NavDropdown title="Requested Form" id="collasible-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Passport</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Licence</NavDropdown.Item>
+          <NavDropdown.Item href="/Licenceshow">Licence</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Voting</NavDropdown.Item>
         </NavDropdown>
       </Nav>
@@ -48,7 +48,7 @@ render() {
       <Nav.Link href="/">Voting</Nav.Link>
       <NavDropdown title="Requested Form" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/">Passport</NavDropdown.Item>
-        <NavDropdown.Item href="/Licenceshow">Licence</NavDropdown.Item>
+        <NavDropdown.Item href="/">Licence</NavDropdown.Item>
         <NavDropdown.Item href="/">Voting</NavDropdown.Item>
       </NavDropdown>
     </Nav>

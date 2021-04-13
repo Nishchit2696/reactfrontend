@@ -1,34 +1,44 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBBtn } from "mdbreact";
 import { Form, Col, Button } from "react-bootstrap";
-const UserRoutes="http://localhost:3000/passport_insert"
+import{Redirect, Link} from'react-router-dom'
+import axios from 'axios';
 class Passport extends Component{
   state={
+    simage:"",
     Firstname:"",
     Lastname:"",
     Fathername:"",
     CitizenshipNo:"",
     Ocupation:"",
     Education:"",
-    Phonenumber:""
+    Phonenumber:"",
+    config : {
+      headers: {'authorization': `Bearer ${localStorage.getItem('token')}`}
+    }
+  }
+  InsertPassport = (e)=>{
+    e.preventDefault();
+    const data = new FormData()
+    data.append('simage', this.state.simage)
+    data.append('Firstname', this.state.Firstname)
+    data.append('Lastname', this.state.Lastname)
+    data.append('Fathername', this.state.Fathername)
+    data.append('CitizenshipNo', this.state.CitizenshipNo)
+    data.append('Ocupation', this.state.Ocupation)
+    data.append('Education', this.state.Education)
+    data.append('Phonenumber', this.state.Phonenumber)
 
+    axios.post("http://localhost:90/passport_insert", data, this.state.config)
+    .then((response)=>{
+      window.alert("Passport successful Inserted")
+      window.location.href="/Passportshow"
+     
+    })
+    .catch(err =>{
+      console.log(err);
+    })
   }
-  sendUserData=(e)=>{
-  e.preventDefault();
-  const data ={
-    Firstname:this.state.Firstname,
-    Lastname:this.state.Lastname,
-    Fathername:this.state.Fathername,
-    CitizenshipNo:this.state.CitizenshipNo,
-    Ocupation:this.state.Ocupation,
-    Education:this.state.Education,
-    Phonenumber:this.state.Phonenumber,
-  }
-  axios.post(UserRoutes+"signup",data)
-  .then()
-  .catch()
-}
     render(){
         return(
             <div>
@@ -36,50 +46,56 @@ class Passport extends Component{
           <MDBContainer fluid className="text-center text-md-left">
 <MDBRow>
   <MDBCol md="6">
-   <img src="../Image/passport.jpg" md="6" className="passimg"/>
+   <img src="../Image/Passport.jpg" md="6" className="passimg"/>
   </MDBCol>
   <MDBCol md="6">
   <div className="card col-12 col-lg-10 login-card mt-5 hv-right" >
-  <form>
+  <form onSubmit={this.InsertPassport}>
         <p className="h4 text-center mb-4 black-text">Passport Form</p>
         <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
           First Name
         </label>
-        <input type="text" value={this.state.Firstname} onchange={(event)=>{this.setState({Firstname: event.target.value})}} id="inputFirstname" className="form-control" />
+        <input type="text" value={this.state.Firstname} onChange={(event)=>{this.setState({Firstname: event.target.value})}} id="defaultFormRegisterNameEx" className="form-control" />
         <br />
         <label htmlFor="defaultFormRegisterEmailEx" className="grey-text">
           Last Name
         </label>
-        <input type="text" value={this.state.Lastname} onchange={(event)=>{this.setState({Lastname: event.target.value})}} id="defaultFormRegisterEmailEx" className="form-control" />
+        <input type="text" value={this.state.Lastname} onChange={(event)=>{this.setState({Lastname: event.target.value})}} id="defaultFormRegisterEmailEx" className="form-control" />
         <br />
         <label htmlFor="defaultFormRegisterConfirmEx" className="grey-text">
           Father Name
         </label>
-        <input type="text" id="defaultFormRegisterConfirmEx" className="form-control" />
+        <input type="text" value={this.state.Fathername} onChange={(event)=>{this.setState({Fathername: event.target.value})}} id="defaultFormRegisterConfirmEx" className="form-control" />
         <br />
          <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
-          Citizenship No.
+         Citizenship No.
         </label>
         <br />
-        <input type="text" id="defaultFormRegisterPasswordEx" className="form-control" />
+        <input type="text" value={this.state.CitizenshipNo} onChange={(event)=>{this.setState({CitizenshipNo: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
         <br />
          <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
          Occupation
         </label>
         <br />
-        <input type="password" id="defaultFormRegisterPasswordEx" className="form-control" />
+        <input type="text" value={this.state.Ocupation} onChange={(event)=>{this.setState({Ocupation: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
         <br />
          <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
          Education
         </label>
         <br />
-        <input type="password" id="defaultFormRegisterPasswordEx" className="form-control" />
+        <input type="text" value={this.state.Education} onChange={(event)=>{this.setState({Education: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
         <br />
-         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
+        <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
          Phone Number
         </label>
         <br />
-        <input type="password" id="defaultFormRegisterPasswordEx" className="form-control" />
+        <input type="text" value={this.state.Phonenumber} onChange={(event)=>{this.setState({Phonenumber: event.target.value})}} id="defaultFormRegisterPasswordEx" className="form-control" />
+        <br />
+         <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
+         Citizenship image
+        </label>
+        <br />
+        <input type="file" value={this.fileHandler} onChange={(event)=>{this.setState({simage: event.target.files[0] }) } } id="fileupload" className="form-control" />
         <div className="text-center mt-4">
           <MDBBtn color="unique" type="submit">
             Register

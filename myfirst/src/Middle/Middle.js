@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Router} from 'react-router-dom'
 import Licenceshow from './Licenceshow'
 import Login from './Login'
 import signup from './signup'
 import passport from './Passport'
 import license from './Licence'
 import voting from './voting'
+import Passportshow from './Passportshow'
 
 class Middle extends Component{
    
@@ -19,6 +20,7 @@ class Middle extends Component{
                 <Route path="/licence" exact component={license}/>
                 <Route path="/voting" exact component={voting}/>
                 <Route path="/Licenceshow" exact component={Licenceshow}/>
+                <Route path="/Passportshow" exact component={Passportshow}/>
 
             </div>
            
