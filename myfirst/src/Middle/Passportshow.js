@@ -62,7 +62,7 @@ class Passportshow extends Component {
                                 <ListGroupItem>{passport.Phonenumber}</ListGroupItem>
                             </ListGroup>
                             <Card.Body>
-                                <Card.Link href="#">Update</Card.Link>
+                                <Card.Link href={"/UpdatePassport/"+passport._id}>Update</Card.Link>
                                 <Card.Link onClick={this.deletPassport.bind(this, passport._id)}>Delete</Card.Link>
                             </Card.Body>
                         </Card>

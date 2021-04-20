@@ -7,6 +7,8 @@ import passport from './Passport'
 import license from './Licence'
 import voting from './voting'
 import Passportshow from './Passportshow'
+import UpdatePassport from './UpdatePassport'
+import UpdateLicense from './UpdateLicense'
 
 class Middle extends Component{
    
@@ -21,6 +23,8 @@ class Middle extends Component{
                 <Route path="/voting" exact component={voting}/>
                 <Route path="/Licenceshow" exact component={Licenceshow}/>
                 <Route path="/Passportshow" exact component={Passportshow}/>
+                <Route path="/UpdatePassport/:id" exact component={UpdatePassport}/>
+                <Route path="/UpdateLicense/:id" exact component = {UpdateLicense}/>
 
             </div>
            

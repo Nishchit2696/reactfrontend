@@ -64,7 +64,7 @@ class Licenceshow extends Component {
                                 <ListGroupItem>{license.Phonenumber}</ListGroupItem>
                             </ListGroup>
                             <Card.Body>
-                                <Card.Link href="#">Update</Card.Link>
+                                <Card.Link href={"/UpdateLicense/"+license._id}>Update</Card.Link>
                                 <Card.Link onClick={this.deletLicence.bind(this, license._id)}>Delete</Card.Link>
                             </Card.Body>
                         </Card>
